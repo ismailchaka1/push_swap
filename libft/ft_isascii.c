@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ichakank <ichakank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 15:19:06 by ichakank          #+#    #+#             */
-/*   Updated: 2025/03/06 00:26:54 by ichakank         ###   ########.fr       */
+/*   Created: 2024/10/27 16:06:36 by ichakank          #+#    #+#             */
+/*   Updated: 2024/11/06 16:42:24 by ichakank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "libft/libft.h"
-
-typedef struct s_stack
+int	ft_isascii(int c)
 {
-    int value;
-    int index;
-    struct s_stack *next;
-}               t_stack;
-
-#endif
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
+}

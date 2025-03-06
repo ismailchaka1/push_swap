@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ichakank <ichakank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 15:19:06 by ichakank          #+#    #+#             */
-/*   Updated: 2025/03/06 00:26:54 by ichakank         ###   ########.fr       */
+/*   Created: 2024/10/31 22:50:36 by ichakank          #+#    #+#             */
+/*   Updated: 2024/11/01 18:26:23 by ichakank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "libft/libft.h"
-
-typedef struct s_stack
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-    int value;
-    int index;
-    struct s_stack *next;
-}               t_stack;
+	t_list	*last;
 
-#endif
+	if (!lst)
+		return ;
+	if (!*lst)
+		*lst = new;
+	else
+	{
+		last = ft_lstlast(*lst);
+		last->next = new;
+	}
+}

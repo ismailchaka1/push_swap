@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ichakank <ichakank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 15:19:06 by ichakank          #+#    #+#             */
-/*   Updated: 2025/03/06 00:26:54 by ichakank         ###   ########.fr       */
+/*   Created: 2024/10/28 00:45:00 by ichakank          #+#    #+#             */
+/*   Updated: 2024/10/28 23:13:44 by ichakank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "libft/libft.h"
-
-typedef struct s_stack
+void	ft_putnbr_fd(int n, int fd)
 {
-    int value;
-    int index;
-    struct s_stack *next;
-}               t_stack;
+	long	number;
 
-#endif
+	number = n;
+	if (fd > 0)
+	{
+		if (number < 0)
+		{
+			number *= -1;
+			ft_putchar_fd('-', fd);
+		}
+		if (number >= 10)
+			ft_putnbr_fd(number / 10, fd);
+		ft_putchar_fd(number % 10 + '0', fd);
+	}
+}

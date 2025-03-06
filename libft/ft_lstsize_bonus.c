@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ichakank <ichakank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 15:19:06 by ichakank          #+#    #+#             */
-/*   Updated: 2025/03/06 00:26:54 by ichakank         ###   ########.fr       */
+/*   Created: 2024/10/31 21:08:09 by ichakank          #+#    #+#             */
+/*   Updated: 2024/11/01 18:28:40 by ichakank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "libft/libft.h"
-
-typedef struct s_stack
+int	ft_lstsize(t_list *lst)
 {
-    int value;
-    int index;
-    struct s_stack *next;
-}               t_stack;
+	int	i;
 
-#endif
+	if (!lst)
+		return (0);
+	i = 0;
+	while (lst != NULL)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
+}

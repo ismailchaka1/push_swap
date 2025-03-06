@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ichakank <ichakank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 15:19:06 by ichakank          #+#    #+#             */
-/*   Updated: 2025/03/06 00:26:54 by ichakank         ###   ########.fr       */
+/*   Created: 2024/10/27 16:08:19 by ichakank          #+#    #+#             */
+/*   Updated: 2024/11/03 23:50:45 by ichakank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "libft/libft.h"
-
-typedef struct s_stack
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-    int value;
-    int index;
-    struct s_stack *next;
-}               t_stack;
+	size_t	src_len;
 
-#endif
+	src_len = ft_strlen(src);
+	if (dstsize > 0)
+	{
+		if (dstsize > src_len + 1)
+			ft_memcpy(dst, src, src_len + 1);
+		else
+		{
+			ft_memcpy(dst, src, dstsize - 1);
+			dst[dstsize - 1] = '\0';
+		}
+	}
+	return (src_len);
+}

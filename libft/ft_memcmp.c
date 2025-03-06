@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ichakank <ichakank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 15:19:06 by ichakank          #+#    #+#             */
-/*   Updated: 2025/03/06 00:26:54 by ichakank         ###   ########.fr       */
+/*   Created: 2024/10/27 16:57:37 by ichakank          #+#    #+#             */
+/*   Updated: 2024/10/28 23:15:26 by ichakank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "libft/libft.h"
-
-typedef struct s_stack
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-    int value;
-    int index;
-    struct s_stack *next;
-}               t_stack;
+	size_t				i;
+	const unsigned char	*ptr1 = (const unsigned char *)s1;
+	const unsigned char	*ptr2 = (const unsigned char *)s2;
 
-#endif
+	i = 0;
+	while (i < n)
+	{
+		if (ptr1[i] != ptr2[i])
+			return (ptr1[i] - ptr2[i]);
+		i++;
+	}
+	return (0);
+}

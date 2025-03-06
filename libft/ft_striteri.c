@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ichakank <ichakank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 15:19:06 by ichakank          #+#    #+#             */
-/*   Updated: 2025/03/06 00:26:54 by ichakank         ###   ########.fr       */
+/*   Created: 2024/10/30 01:45:09 by ichakank          #+#    #+#             */
+/*   Updated: 2024/11/10 20:40:34 by ichakank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "libft/libft.h"
-
-typedef struct s_stack
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-    int value;
-    int index;
-    struct s_stack *next;
-}               t_stack;
+	unsigned int	i;
 
-#endif
+	i = 0;
+	if (!s || !f)
+		return ;
+	while (s[i])
+	{
+		(*f)(i, &s[i]);
+		i++;
+	}
+}

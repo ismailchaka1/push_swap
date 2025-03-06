@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ichakank <ichakank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 15:19:06 by ichakank          #+#    #+#             */
-/*   Updated: 2025/03/06 00:26:54 by ichakank         ###   ########.fr       */
+/*   Created: 2024/10/27 16:07:01 by ichakank          #+#    #+#             */
+/*   Updated: 2024/11/06 16:41:49 by ichakank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "libft/libft.h"
-
-typedef struct s_stack
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-    int value;
-    int index;
-    struct s_stack *next;
-}               t_stack;
+	size_t	i;
+	char	*tempdst;
+	char	*tempsrc;
 
-#endif
+	tempdst = (char *)dst;
+	tempsrc = (char *)src;
+	i = 0;
+	if (!tempdst && !tempsrc)
+		return (NULL);
+	while (i < n)
+	{
+		tempdst[i] = tempsrc[i];
+		i++;
+	}
+	return (dst);
+}

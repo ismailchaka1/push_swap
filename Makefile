@@ -8,12 +8,17 @@ RM = rm -f
 
 all: $(NAME)
 
+
+
 ${NAME}: ${OBJS}
-	${CC} ${CFLAGS} ${OBJS} -o ${NAME}
+	make -C ./libft
+	${CC} ${CFLAGS} ${OBJS} libft/libft.a -o ${NAME}
 clean:
+	make -C ./libft clean
 	$(RM) $(OBJS)
 
 fclean: clean
+	make -C ./libft fclean
 	$(RM) $(NAME)
 
 re: fclean all
