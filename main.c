@@ -6,7 +6,7 @@
 /*   By: ichakank <ichakank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 15:20:28 by ichakank          #+#    #+#             */
-/*   Updated: 2025/03/06 02:04:21 by ichakank         ###   ########.fr       */
+/*   Updated: 2025/03/06 02:51:34 by ichakank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,50 @@ void pb(t_stack **stackb, t_stack **stacka)
     push_stack(stacka, stackb);
 }
 
+void rotate(t_stack **stack)
+{
+    t_stack *tmp;
+    t_stack *last;
+
+    if (*stack == NULL)
+        return;
+    tmp = *stack;
+    while (tmp->next != NULL)
+    {
+        tmp = tmp->next;
+    }
+    last = tmp;
+    last->next = *stack;
+    *stack = (*stack)->next;
+    last->next->next = NULL;
+}
+
+void ra(t_stack **stack)
+{
+    printf("ra\n");
+    rotate(stack);
+}
+
+void rb(t_stack **stack)
+{
+    printf("rb\n");
+    rotate(stack);
+}
+void rr(t_stack **stacka, t_stack **stackb)
+{
+    printf("rr\n");
+    rotate(stacka);
+    rotate(stackb);
+}
+
+void reverse_rotate(t_stack **stack)
+{
+    t_stack *tmp;
+    t_stack *last;
+
+    
+}
+
 void free_split(char **split)
 {
     int i;
@@ -194,9 +238,10 @@ int main(int ac, char **av)
     }
     print_stack(stack_a);
     print_stack(stack_b);
-    pb(&stack_b, &stack_a);
-    print_stack(stack_a);
+    // pb(&stack_b, &stack_a);
+    rotate(&stack_a);
     printf("----------\n");
+    print_stack(stack_a);
     print_stack(stack_b);
     // sa(&stack_a);
     // print_stack(stack_a);
