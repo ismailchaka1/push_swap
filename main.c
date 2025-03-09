@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 15:20:28 by ichakank          #+#    #+#             */
-/*   Updated: 2025/03/09 03:44:06 by root             ###   ########.fr       */
+/*   Updated: 2025/03/09 19:27:25 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -528,14 +528,23 @@ void sort_others(t_stack **stacka, t_stack **stackb)
 
 int	max_index(t_stack *b)
 {
-	int	index;
+	int		index;
+	int		max_value;
+	t_stack	*tmp;
 
+	if (!b)
+		return (-1);
+	max_value = stack_max(b)->value;
 	index = 0;
-	while (b && stack_max(b) != b)
+	tmp = b;
+	while (tmp)
 	{
-		b = b->prev;
+		if (tmp->value == max_value)
+			break;
+		tmp = tmp->next;
 		index++;
 	}
+	// printf("max index %d\n", index);
 	return (index);
 }
 
@@ -551,7 +560,11 @@ void	max_to_top(t_stack **b)
 		if (index == 0)
 			break ;
 		else if (index <= size / 2)
+		{
+			print_stack(*b);
 			rb(b);
+			print_stack(*b);
+		}
 		else if (index > size / 2)
 			rrb(b);
 	}
