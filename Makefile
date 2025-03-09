@@ -11,7 +11,7 @@ all: $(NAME)
 
 
 ${NAME}: ${OBJS}
-	make -C ./libft
+	make -C ./libft bonus
 	${CC} ${CFLAGS} ${OBJS} libft/libft.a -o ${NAME}
 clean:
 	make -C ./libft clean
