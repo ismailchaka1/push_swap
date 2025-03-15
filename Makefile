@@ -3,7 +3,7 @@ SRCS = main.c
 NAME = push_swap
 OBJS = $(SRCS:.c=.o)
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror # -g3 -fsanitize=address
 RM = rm -f
 
 all: $(NAME)

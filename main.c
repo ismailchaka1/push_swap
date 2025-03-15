@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ichakank <ichakank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 15:20:28 by ichakank          #+#    #+#             */
-/*   Updated: 2025/03/09 19:27:25 by root             ###   ########.fr       */
+/*   Updated: 2025/03/13 19:55:49 by ichakank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -611,9 +611,8 @@ int	main(int ac, char **av)
 	i = 1;
 	stack_a = NULL;
 	stack_b = NULL;
-	if (ac <= 2)
+	if (ac <= 1)
 	{
-		printf("Error \n");
 		return (-1);
 	}
 	while (av[i])
@@ -624,7 +623,7 @@ int	main(int ac, char **av)
 		{
 			if (check_duplicate(stack_a, ft_atoi(split[j])))
 			{
-				write(1, "Error\n", 6);
+				printf("ERROR");
 				exit(1);
 			}
 			push(&stack_a, ft_atoi(split[j]));
@@ -639,10 +638,6 @@ int	main(int ac, char **av)
 		sort_stack(&stack_a, &stack_b);
 		print_stack(stack_a);
 		print_stack(stack_b);
-	}
-	else
-	{
-		printf("sorted\n");
 	}
 	clear_stack(&stack_a);
 	clear_stack(&stack_b);
