@@ -1,4 +1,4 @@
-SRCS = main.c
+SRCS = main.c parsing_utils.c rules.c rules2.c sort_utils.c sort_utils2.c sort.c utils.c utils2.c
 
 NAME = push_swap
 OBJS = $(SRCS:.c=.o)
