@@ -20,7 +20,7 @@ void	error_exit(void)
 
 void	check_number(long long result, int i, char *str)
 {
-	if (result >= 2147483647 || result <= -2147483648)
+	if (result > 2147483647 || result < -2147483648)
 		error_exit();
 	if (str[i] != '\0')
 		error_exit();
@@ -47,7 +47,7 @@ int	ft_atoi(char *str)
 	while (str[i] <= '9' && str[i] >= '0')
 	{
 		result = result * 10 + (str[i] - '0');
-		if (result >= 2147483647 || result <= -2147483648)
+		if (result > 2147483647 || result < -2147483648)
 			error_exit();
 		i++;
 	}
